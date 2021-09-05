@@ -13,11 +13,6 @@ const oddAction = () => {
     type: "ODD",
   };
 };
-const asyncAction = () => {
-  return {
-    type: "ASYNC",
-  };
-};
 const resetAction = () => {
   return {
     type: "RESET",
@@ -28,29 +23,54 @@ const timerAction = () => {
     type: "TIMER",
   };
 };
-const addAction = () => {
+const addAction = (todo) => {
   return {
     type: "ADD",
+    payload: todo,
   };
 };
-const deleteAction = () => {
+const textAction = (item) => {
+  return {
+    type: "TEXT",
+    payload: item,
+  };
+};
+const deleteAction = (id) => {
   return {
     type: "DELETE",
+    payload: id,
   };
 };
-const sortAction = () => {
+const dropAction = (key) => {
+  return {
+    type: "DROP",
+    payload: key,
+  };
+};
+const sortAction = (value) => {
   return {
     type: "SORT",
+    payload: value,
   };
 };
+export const timer = () => (dispatch, getState) => {
+  let timer = null;
+  clearInterval(timer);
+  if (getState().isRunning === true)
+    timer = setInterval(() => {
+      dispatch(incAction());
+    }, 1000);
+};
+
 export {
   incAction,
   decAction,
   oddAction,
-  asyncAction,
   resetAction,
   timerAction,
+  textAction,
   addAction,
   deleteAction,
+  dropAction,
   sortAction,
 };
