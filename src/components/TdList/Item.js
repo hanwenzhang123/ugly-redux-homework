@@ -7,7 +7,7 @@ function Item(props) {
     <div>
       <li>
         {props.item}
-        <button onClick={props.deleteHandler}>x</button>
+        <button onClick={() => props.deleteHandler()}>x</button>
       </li>
     </div>
   );
