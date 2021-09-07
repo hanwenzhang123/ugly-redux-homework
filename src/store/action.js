@@ -68,9 +68,10 @@ const sortAction = (value) => {
 };
 
 //Visibility
-const visibilityAction = () => {
+const visibilityAction = (id) => {
   return {
-    type: "CHECK"
+    type: "CHECK",
+    payload: id,
   };
 };
 
