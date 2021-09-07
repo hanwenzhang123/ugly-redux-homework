@@ -11,7 +11,7 @@ export default function ContentContainer(OriginalComponent){
     return (
         <div>
             <span>Invisible Checkbox</span>
-            <input type="checkbox" onClick={props.visibilityHandler} />
+            <input type="checkbox"  onClick={props.visibilityHandler} />
                 {hidden ? <OriginalComponent /> : null}
         </div>
     );

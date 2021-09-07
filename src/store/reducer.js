@@ -51,7 +51,7 @@ const tdListReducer = (state = TODO_INIT_STATE, action) => {
     case "ADD":
       return {...state, todo: [...state.todo, action.payload], text: ""}; 
     case "DELETE":
-      return { ...state, todo: state.todo.filter((item, i) => i !== action.payload)}
+      return { ...state, todo: state.todo.filter((item, index) => index !== action.payload)}
     case "SORT":
       if (action.payload === "asc") {
         const ascList = state.todo.sort((a, b) => a.localeCompare(b));
