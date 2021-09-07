@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ugly-redux-homework/static/css/main.8da45a42.chunk.css",
+    "main.js": "/ugly-redux-homework/static/js/main.b2743922.chunk.js",
+    "main.js.map": "/ugly-redux-homework/static/js/main.b2743922.chunk.js.map",
+    "runtime-main.js": "/ugly-redux-homework/static/js/runtime-main.cd2893c8.js",
+    "runtime-main.js.map": "/ugly-redux-homework/static/js/runtime-main.cd2893c8.js.map",
+    "static/js/2.3c30980b.chunk.js": "/ugly-redux-homework/static/js/2.3c30980b.chunk.js",
+    "static/js/2.3c30980b.chunk.js.map": "/ugly-redux-homework/static/js/2.3c30980b.chunk.js.map",
+    "index.html": "/ugly-redux-homework/index.html",
+    "static/css/main.8da45a42.chunk.css.map": "/ugly-redux-homework/static/css/main.8da45a42.chunk.css.map",
+    "static/js/2.3c30980b.chunk.js.LICENSE.txt": "/ugly-redux-homework/static/js/2.3c30980b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd2893c8.js",
+    "static/js/2.3c30980b.chunk.js",
+    "static/css/main.8da45a42.chunk.css",
+    "static/js/main.b2743922.chunk.js"
+  ]
+}
