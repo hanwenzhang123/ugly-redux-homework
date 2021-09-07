@@ -1,3 +1,4 @@
+//COUNTER
 const incAction = () => {
   return {
     type: "INCREMENT",
@@ -23,18 +24,42 @@ const timerAction = () => {
     type: "TIMER",
   };
 };
-const addAction = (todo) => {
-  return {
-    type: "ADD",
-    payload: todo,
-  };
-};
+
+let timer;
+export const timerUpdate = () => (dispatch, getState) => {
+    clearInterval(timer);
+    timer = setInterval(() => {
+        dispatch(incAction());
+    }, 1000);
+  }
+
+export const timerStopUpdate = () => (dispatch, getState) =>
+  clearInterval(timer);
+
+
+//TO-DO LIST
 const textAction = (item) => {
   return {
     type: "TEXT",
     payload: item,
   };
 };
+
+// const addAction = (todo) => {
+//   return {
+//     type: "ADD",
+//     payload: todo, 
+//   };
+// };
+
+const addAction = () =>  (dispatch, getState) => {
+  let inputText = getState().tdListReducer.text;
+  dispatch({
+  type: "ADD",
+  payload: inputText, 
+    })
+};
+
 const deleteAction = (id) => {
   return {
     type: "DELETE",
@@ -52,14 +77,6 @@ const sortAction = (value) => {
     type: "SORT",
     payload: value,
   };
-};
-export const timer = () => (dispatch, getState) => {
-  let timer = null;
-  clearInterval(timer);
-  if (getState().isRunning === true)
-    timer = setInterval(() => {
-      dispatch(incAction());
-    }, 1000);
 };
 
 export {

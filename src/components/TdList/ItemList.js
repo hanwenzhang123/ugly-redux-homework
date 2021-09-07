@@ -6,6 +6,7 @@ function ItemList(props) {
   if (props.todo.length === 0) {
     return <p>Found No To-do Items.</p>;
   }
+  console.log(props)
 
   return (
     <div className="App">

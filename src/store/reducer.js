@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 
+//COUNTER
 const COUNT_INIT_STATE = {
   counter: 0,
   isRunning: false,
@@ -37,18 +38,19 @@ const counterReducer = (state = COUNT_INIT_STATE, action) => {
   }
 };
 
+//TO-DO LIST
 const TODO_INIT_STATE = {
   todo: ["Study Redux", "Do Homework"],
   text: "",
 };
+
 
 const tdListReducer = (state = TODO_INIT_STATE, action) => {
   switch (action.type) {
     case "TEXT":
       return { ...state, text: action.payload };
     case "ADD":
-      const addItem = state.todo.push(action.payload);
-      return { ...state, todo: addItem, text: "" };
+      return {...state, todo: [...state.todo, state.todo.push(action.payload)], text: "" }; 
     case "DELETE":
       const deleteItem = state.todo.filter(
         (item, index) => index !== action.payload

@@ -8,18 +8,13 @@ function ButtonRow(props) {
       props.incHandler();
     }, 1000);
   }
-  let timer = null;
 
-  if (props.isRunning === true) {
-    clearInterval(timer);
-    timer = setInterval(() => {
-      props.incHandler();
-    }, 1000);
+  if(props.isRunning) {
+    props.timerUpdate();
+  } else {
+    props.timerStopUpdate();
   }
 
-  if (props.isRunning === false) {
-    clearInterval(timer);
-  }
   return (
     <div className="App">
       <button onClick={props.incHandler}>Increment +1</button> <br />
@@ -44,7 +39,8 @@ const mapDispatchToProps = (dispatch) => ({
   oddHandler: () => dispatch(actions.oddAction()),
   resetHandler: () => dispatch(actions.resetAction()),
   timerHandler: () => dispatch(actions.timerAction()),
-  timer: () => dispatch(actions.timer()),
+  timerUpdate: () => dispatch(actions.timerUpdate()),
+  timerStopUpdate: () => dispatch(actions.timerStopUpdate()),
 });
 
 const ConnectedCounter = connect(
