@@ -45,15 +45,8 @@ const textAction = (item) => {
   };
 };
 
-// const addAction = (todo) => {
-//   return {
-//     type: "ADD",
-//     payload: todo, 
-//   };
-// };
-
 const addAction = () =>  (dispatch, getState) => {
-  let inputText = getState().tdListReducer.text;
+  const inputText = getState().tdListReducer.text;
   dispatch({
   type: "ADD",
   payload: inputText, 
@@ -63,19 +56,21 @@ const addAction = () =>  (dispatch, getState) => {
 const deleteAction = (id) => {
   return {
     type: "DELETE",
-    payload: id,
+    payload: id
   };
 };
-const dropAction = (key) => {
-  return {
-    type: "DROP",
-    payload: key,
-  };
-};
+
 const sortAction = (value) => {
   return {
     type: "SORT",
     payload: value,
+  };
+};
+
+//Visibility
+const visibilityAction = () => {
+  return {
+    type: "CHECK"
   };
 };
 
@@ -88,6 +83,6 @@ export {
   textAction,
   addAction,
   deleteAction,
-  dropAction,
   sortAction,
+  visibilityAction
 };

@@ -3,11 +3,15 @@ import { connect } from "react-redux";
 import * as actions from "../../store/action";
 
 function Item(props) {
+  const handledelete = (item) => {
+    props.deleteHandler(item.id)
+  }
+
   return (
     <div>
       <li>
         {props.item}
-        <button onClick={() => props.deleteHandler()}>x</button>
+        <button onClick={handledelete}>x</button>
       </li>
     </div>
   );

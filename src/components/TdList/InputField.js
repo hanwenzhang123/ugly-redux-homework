@@ -3,14 +3,16 @@ import { connect } from "react-redux";
 import * as actions from "../../store/action";
 
 const InputField = ({ text, textHandler, addHandler, sortHandler }) => {
-  console.log(text);
-
   const handleChange = (e) => {
     textHandler(e.target.value);
   };
 
   const handleAdd = (e) => {
     addHandler(e.target.value);
+  };
+
+  const handleDropdown = (e) => {
+    sortHandler(e.target.value);
   };
 
   return (
@@ -24,7 +26,7 @@ const InputField = ({ text, textHandler, addHandler, sortHandler }) => {
       />
 
       <button onClick={handleAdd}>ADD</button>
-      <select onSelect={sortHandler}>
+      <select onChange={handleDropdown}>
         <option>***sort***</option>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>

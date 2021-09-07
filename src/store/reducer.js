@@ -44,34 +44,48 @@ const TODO_INIT_STATE = {
   text: "",
 };
 
-
 const tdListReducer = (state = TODO_INIT_STATE, action) => {
   switch (action.type) {
     case "TEXT":
       return { ...state, text: action.payload };
     case "ADD":
-      return {...state, todo: [...state.todo, state.todo.push(action.payload)], text: "" }; 
+      return {...state, todo: [...state.todo, action.payload], text: ""}; 
     case "DELETE":
-      const deleteItem = state.todo.filter(
-        (item, index) => index !== action.payload
-      );
-      return { ...state, todo: deleteItem };
+      return { ...state, todo: [state.todo.filter((item, i) => i !== action.payload)]}
     case "SORT":
       if (action.payload === "asc") {
         const ascList = state.todo.sort((a, b) => a.localeCompare(b));
-        return { todo: ascList };
+        return { ...state, todo: [...ascList]};
       } else if (action.payload === "desc") {
         const descList = state.todo.sort((a, b) => b.localeCompare(a));
-        return { todo: descList };
+        return { ...state, todo: [...descList]};
       }
       break;
     default:
       return state;
   }
 };
+
+//Visibility
+const VISIBILITY_INIT_STATE = {
+  checked: false,
+};
+
+const visibilityReducer = (state = VISIBILITY_INIT_STATE, action) => {
+  switch (action.type) {
+    case "CHECK":
+      return {
+        checked: !state.checked,
+      }
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   counterReducer,
   tdListReducer,
+  visibilityReducer
 });
 
 export default rootReducer;
